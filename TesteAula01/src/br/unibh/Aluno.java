@@ -23,6 +23,13 @@ public class Aluno extends Pessoa {
 		this.matricula = matricula;
 	}
 
+	public static boolean verificaMatricula(String matricula) {
+		if (matricula == null || matricula.trim().equals("") || matricula.length() != 8){
+			return false;
+		}
+		return true;
+	}
+
 	public Long getMatricula() {
 		return matricula;
 	}
