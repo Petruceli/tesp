@@ -57,4 +57,14 @@ public class ProfessorDAO implements DAO <Professor, Long>{
 		return null;
 	}
 
+	public void clean() {
+		// TODO Auto-generated method stub
+		try {
+			JDBCUtil.getConnection().prepareStatement("truncate tb_aluno")
+					.executeUpdate();
+			JDBCUtil.closeConnection();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
