@@ -12,22 +12,39 @@ import br.unibh.entidades.Aluno;
 public class AlunoDAO implements DAO<Aluno, Long> {
 
 	private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-	
+
 	@Override
 	public Aluno find(Long id) {
 		try {
-			PreparedStatement p = JDBCUtil.getConnection().
-					prepareStatement("select * from tb_aluno where id = ?");
+			PreparedStatement p = JDBCUtil.getConnection().prepareStatement(
+					"select * from tb_aluno where id = ?");
 			p.setLong(1, id);
 			ResultSet r = p.executeQuery();
-			if (r.next()){
-				return new Aluno(r.getLong("id"),
-						r.getLong("matricula"),
-						r.getString("nome"),
-						r.getString("cpf"),
-						r.getString("data_aniversario")==null?
-						null:df.parse(r.getString("data_aniversario"))
-						);
+			if (r.next()) {
+				return new Aluno(r.getLong("id"), r.getLong("matricula"),
+						r.getString("nome"), r.getString("cpf"),
+						r.getString("data_aniversario") == null ? null : df
+								.parse(r.getString("data_aniversario")));
+			}
+			JDBCUtil.closeConnection();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public Aluno find(String cpf) {
+		try {
+			PreparedStatement p = JDBCUtil.getConnection().prepareStatement(
+					"select * from tb_aluno where cpf = ?");
+			p.setString(1, cpf);
+			ResultSet r = p.executeQuery();
+			if (r.next()) {
+				return new Aluno(r.getLong("id"), r.getLong("matricula"),
+						r.getString("nome"), r.getString("cpf"),
+						r.getString("data_aniversario") == null ? null : df
+								.parse(r.getString("data_aniversario")));
 			}
 			JDBCUtil.closeConnection();
 		} catch (Exception e) {
@@ -40,16 +57,16 @@ public class AlunoDAO implements DAO<Aluno, Long> {
 	@Override
 	public void insert(Aluno t) {
 		try {
-			PreparedStatement p = JDBCUtil.getConnection().
-					prepareStatement("insert into tb_aluno (matricula, nome, "
+			PreparedStatement p = JDBCUtil.getConnection().prepareStatement(
+					"insert into tb_aluno (matricula, nome, "
 							+ "cpf, data_aniversario) values (?, ?, ?, ?)");
 			p.setLong(1, t.getMatricula());
 			p.setString(2, t.getNome());
 			p.setString(3, t.getCpf());
-			if (t.getDataAniversario()==null){
-					p.setNull(4, Types.NULL);
+			if (t.getDataAniversario() == null) {
+				p.setNull(4, Types.NULL);
 			} else {
-					p.setString(4, df.format(t.getDataAniversario()));
+				p.setString(4, df.format(t.getDataAniversario()));
 			}
 			p.executeUpdate();
 			JDBCUtil.closeConnection();
@@ -58,6 +75,7 @@ public class AlunoDAO implements DAO<Aluno, Long> {
 			e.printStackTrace();
 		}
 	}
+
 	@Override
 	public void update(Aluno t) {
 		// TODO Auto-generated method stub
@@ -76,4 +94,14 @@ public class AlunoDAO implements DAO<Aluno, Long> {
 		return null;
 	}
 
+	public void clean() {
+		// TODO Auto-generated method stub
+		try {
+			JDBCUtil.getConnection().prepareStatement("truncate tb_aluno")
+					.executeUpdate();
+			JDBCUtil.closeConnection();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
