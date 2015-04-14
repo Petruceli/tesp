@@ -1,0 +1,7 @@
+INSERT INTO Member (id, name, email, phone_number) values (0, 'Gustavo', 'gustavo@gmail.com', '3133337777')
+INSERT INTO `tb_pessoa`(`id`, `cpf`, `nome`) VALUES (00001,76584736764,'Lucas Henrique')
+INSERT INTO `tb_pessoa`(`id`, `cpf`, `nome`) VALUES (00002,88888876549,'Ana Luiza')
+INSERT INTO `tb_pessoa`(`id`, `cpf`, `nome`) VALUES (00003,99999964753,'Leonardo Henrique')
+INSERT INTO `tb_aluno`(`dataAniversario`, `matricula`, `id`) VALUES ('1995-05-05',12345,00001)
+INSERT INTO `tb_aluno`(`dataAniversario`, `matricula`, `id`) VALUES ('1984-05-15',54321,00002)
+INSERT INTO `tb_professor`(`salario`, `id`) VALUES (5000,00003)
