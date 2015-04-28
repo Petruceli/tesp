@@ -37,7 +37,7 @@
 				</rich:panel>
 			</h:form>
 		</h:panelGroup>
-		<rich:panel>
+		<rich:panel rendered="#{empty alunomb.aluno}">
 			<h:outputText value="Lista de Alunos"
 				style="font-size:15px;font-weight:bold" />
 			<h:form id="arg">
@@ -58,7 +58,8 @@
 					<rich:popupPanel id="popup" modal="false" autosized="true"
 						resizeable="false">
 						<f:facet name="header">
-							<h:outputText value="Dados do Aluno - Exercício 05" />
+							<h:outputText value="Dados do Aluno - Exercício 05"
+								style="font-weight:bold" />
 						</f:facet>
 						<f:facet name="controls">
 							<h:outputLink value="#"
@@ -66,13 +67,18 @@
                 X
             </h:outputLink>
 						</f:facet>
-						<p>Nome: Gustavo Petruceli Henriques</p>
-						<p>Matéria: Tópicos Especiais</p>
-						<p>Curso: Sistemas para Internet</p>
-						<p>Professor: José Humberto Cruvinel</p>
-						<center><h:commandButton value="Fechar"
-								onclick="#{rich:component('popup')}.hide(); return false;"></h:commandButton></center>
-						</rich:popupPanel>
+						<rich:panel>
+							<p>Nome: Gustavo Petruceli Henriques</p>
+							<p>Matéria: Tópicos Especiais</p>
+							<p>Curso: Sistemas para Internet</p>
+							<p>Professor: José Humberto Cruvinel</p>
+							<center>
+								<h:commandButton value="Fechar"
+									onclick="#{rich:component('popup')}.hide(); return false;"></h:commandButton>
+							</center>
+						</rich:panel>
+					</rich:popupPanel>
+
 				</rich:toolbar>
 			</h:form>
 			<h:panelGroup rendered="#{empty alunomb.alunoes}">
@@ -108,7 +114,7 @@
 					</rich:column>
 					<rich:column>
 						<f:facet name="header">
-							<h:outputText value="Data Aniversário " />
+							<h:outputText value="Data Nascimento " />
 						</f:facet>
 						<h:outputText value="#{aluno.dataAniversario}">
 							<f:convertDateTime pattern="dd/MM/yyyy" />

@@ -28,7 +28,7 @@ import org.hibernate.validator.constraints.NotBlank;
 	@NotBlank
 	@NotNull
 	@Size(min = 5, max = 100)
-	@Pattern(regexp = "[A-Za-z À-ú ]*", message = "must contain only letters and spaces")
+	@Pattern(regexp = "[A-Za-z À-ú ]*", message = "Somente letras e espaço.")
 	@Column(name = "nome", length = 100, nullable = false)
 	private String nome;
 
