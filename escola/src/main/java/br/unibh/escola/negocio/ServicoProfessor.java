@@ -2,10 +2,13 @@ package br.unibh.escola.negocio;
 
 import java.util.List;
 import java.util.logging.Logger;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+
+import br.unibh.escola.entidades.Disciplina;
 import br.unibh.escola.entidades.Professor;
 
 @Stateless
@@ -55,5 +58,17 @@ public class ServicoProfessor implements DAO<Professor, Long> {
 		log.info("Encontrando Professors " + name);
 		return em.createNamedQuery("Professor.findByName")
 				.setParameter("nome", name + "%").getResultList();
+	}
+	
+	@Override
+	public List<Professor> findByCapacidade(int capacidade) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Disciplina> findByNomeECurso(String nome, String curso) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -41,7 +41,7 @@
 				<rich:toolbar height="26" itemSeparator="grid">
 					<rich:toolbarGroup>
 						<h:commandButton id="novo" action="#{professormb.novo}"
-							value="Adicionar Novo Professor" render="cadastro" />
+							value="Novo Professor" render="cadastro" />
 					</rich:toolbarGroup>
 					<rich:toolbarGroup>
 						<h:outputLabel value="Nome:" />
@@ -55,7 +55,8 @@
 					<rich:popupPanel id="popup" modal="false" autosized="true"
 						resizeable="false">
 						<f:facet name="header">
-							<h:outputText value="Dados do Aluno - Exercício 05" />
+							<h:outputText value="Dados do Aluno - Exercício 05"
+								style="font-weight:bold" />
 						</f:facet>
 						<f:facet name="controls">
 							<h:outputLink value="#"
@@ -63,15 +64,24 @@
                 X
             </h:outputLink>
 						</f:facet>
-						<p>Nome: Gustavo Petruceli Henriques</p>
-						<p>Matéria: Tópicos Especiais</p>
-						<p>Curso: Sistemas para Internet</p>
-						<p>Professor: José Humberto Cruvinel</p>
-						<center>
-							<h:commandButton value="Fechar"
-								onclick="#{rich:component('popup')}.hide(); return false;"></h:commandButton>
-						</center>
+<rich:panel>
+							<h:panelGrid columns="2">
+								<h:outputText value="1º Nome:" />
+								<h:outputText value="Gustavo Petruceli Henriques" />
+								<h:outputText value="Matéria:" />
+								<h:outputText value="Tópicos Especiais" />
+								<h:outputText value="Curso:" />
+								<h:outputText value="Sistemas para Internet" />
+								<h:outputText value="Professor:" />
+								<h:outputText value="José Humberto Cruvinel" />
+							</h:panelGrid>
+							<center>
+								<h:commandButton value="Fechar"
+									onclick="#{rich:component('popup')}.hide(); return false;"></h:commandButton>
+							</center>
+						</rich:panel>
 					</rich:popupPanel>
+					
 				</rich:toolbar>
 			</h:form>
 			<h:panelGroup rendered="#{empty professormb.professores}">

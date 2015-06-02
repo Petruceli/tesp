@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 14-Abr-2015 às 01:53
+-- Generation Time: 13-Abr-2015 às 23:04
 -- Versão do servidor: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `member` (
 --
 
 INSERT INTO `member` (`id`, `email`, `name`, `phone_number`) VALUES
-(0, 'gustavo@gmail.com', 'Gustavo', '3133337777');
+(0, 'john.smith@mailinator.com', 'John Smith', '2125551212');
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ INSERT INTO `member` (`id`, `email`, `name`, `phone_number`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tb_aluno` (
-  `dataAniversario` date NOT NULL,
+  `dataAniversairo` date NOT NULL,
   `matricula` bigint(20) NOT NULL,
   `id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
@@ -78,9 +78,9 @@ CREATE TABLE IF NOT EXISTS `tb_aluno` (
 -- Extraindo dados da tabela `tb_aluno`
 --
 
-INSERT INTO `tb_aluno` (`dataAniversario`, `matricula`, `id`) VALUES
-('1995-05-05', 12345, 1),
-('1984-05-15', 54321, 2);
+INSERT INTO `tb_aluno` (`dataAniversairo`, `matricula`, `id`) VALUES
+('1990-07-06', 12345, 1),
+('1989-03-10', 54321, 2);
 
 -- --------------------------------------------------------
 
@@ -101,9 +101,9 @@ CREATE TABLE IF NOT EXISTS `tb_pessoa` (
 --
 
 INSERT INTO `tb_pessoa` (`id`, `cpf`, `nome`) VALUES
-(1, '76584736764', 'Lucas Henrique'),
-(2, '88888876549', 'Ana Luiza'),
-(3, '99999964753', 'Leonardo Henrique');
+(1, '12345678901', 'Natan Lopes'),
+(2, '9876543212', 'Kelly Ferreira'),
+(3, '12345543211', 'Katia Sirlene');
 
 -- --------------------------------------------------------
 
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `tb_professor` (
 --
 
 INSERT INTO `tb_professor` (`salario`, `id`) VALUES
-('5.00', 3);
+('4.50', 3);
 
 --
 -- Constraints for dumped tables

@@ -24,11 +24,11 @@
 						<h:inputText id="matricula" value="#{alunomb.aluno.matricula}"
 							size="10" />
 						<h:message for="matricula" errorClass="invalid" />
-						<h:outputLabel value="Data de Aniversário " />
-						<rich:calendar id="dataAniversario"
-							value="#{alunomb.aluno.dataAniversario}" size="10" popup="true"
+						<h:outputLabel value="Data de Nascimento " />
+						<rich:calendar id="dataAniversairo"
+							value="#{alunomb.aluno.dataAniversairo}" size="10" popup="true"
 							datePattern="dd/MM/yyyy" />
-						<h:message for="dataAniversario" errorClass="invalid" />
+						<h:message for="dataAniversairo" errorClass="invalid" />
 					</h:panelGrid>
 					<h:commandButton id="gravar" action="#{alunomb.gravar}"
 						value="Gravar" />
@@ -44,7 +44,7 @@
 				<rich:toolbar height="26" itemSeparator="grid">
 					<rich:toolbarGroup>
 						<h:commandButton id="novo" action="#{alunomb.novo}"
-							value="Adicionar Novo Aluno" render="cadastro" />
+							value="Novo Aluno" render="cadastro" />
 					</rich:toolbarGroup>
 					<rich:toolbarGroup>
 						<h:outputLabel value="Nome:" />
@@ -68,10 +68,16 @@
             </h:outputLink>
 						</f:facet>
 						<rich:panel>
-							<p>Nome: Gustavo Petruceli Henriques</p>
-							<p>Matéria: Tópicos Especiais</p>
-							<p>Curso: Sistemas para Internet</p>
-							<p>Professor: José Humberto Cruvinel</p>
+							<h:panelGrid columns="2">
+								<h:outputText value="1º Nome:" />
+								<h:outputText value="Gustavo Petruceli Henriques" />
+								<h:outputText value="Matéria:" />
+								<h:outputText value="Tópicos Especiais" />
+								<h:outputText value="Curso:" />
+								<h:outputText value="Sistemas para Internet" />
+								<h:outputText value="Professor:" />
+								<h:outputText value="José Humberto Cruvinel" />
+							</h:panelGrid>
 							<center>
 								<h:commandButton value="Fechar"
 									onclick="#{rich:component('popup')}.hide(); return false;"></h:commandButton>
@@ -114,9 +120,9 @@
 					</rich:column>
 					<rich:column>
 						<f:facet name="header">
-							<h:outputText value="Data Nascimento " />
+							<h:outputText value="Data de Nascimento " />
 						</f:facet>
-						<h:outputText value="#{aluno.dataAniversario}">
+						<h:outputText value="#{aluno.dataAniversairo}">
 							<f:convertDateTime pattern="dd/MM/yyyy" />
 						</h:outputText>
 					</rich:column>

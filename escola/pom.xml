@@ -27,6 +27,13 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>org.richfaces</groupId>
+				<artifactId>richfaces-bom</artifactId>
+				<version>4.3.7.Final</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
 			<!-- Define the version of JBoss' Java EE 6 APIs we want to import. Any 
 				dependencies from org.jboss.spec will have their version defined by this 
 				BOM -->
@@ -44,13 +51,6 @@
 				<version>2.0.0.Final</version>
 				<type>pom</type>
 				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.richfaces</groupId>
-				<artifactId>richfaces-bom</artifactId>
-				<version>4.3.7.Final</version>
-				<scope>import</scope>
-				<type>pom</type>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
